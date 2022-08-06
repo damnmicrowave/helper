@@ -20,6 +20,10 @@
     <input type="text"/>
 </label>
 <label>
+    срок:
+    <input type="text"/>
+</label>
+<label>
     <p>макрдаун сюды:</p>
     <textarea></textarea>
 </label>
@@ -32,13 +36,14 @@
   const s1 = document.querySelector('span')
   const [ b1, b2 ] = document.querySelectorAll('button')
   b1.onclick = () => {
-    const [ i1, i2 ] = document.querySelectorAll('input')
+    const [ i1, i2, i3 ] = document.querySelectorAll('input')
     const t1 = document.querySelector('textarea')
     if ( !(i1.value in json) ) {
       json[i1.value] = {}
     }
-    json[i1.value][i2.value] = t1.value
+    json[i1.value][i2.value] = [t1.value, i3.value]
     i2.value = ''
+    i3.value = ''
     t1.value = ''
     let n = 0
     Object.keys(json).forEach(k => n += Object.keys(json[k]).length)
